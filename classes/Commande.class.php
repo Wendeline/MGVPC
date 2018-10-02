@@ -37,7 +37,7 @@ class Commande {
     
     public function __set($prop, $val) {
         if(property_exists($this, $prop)){
-            $this->$prop = $val;
+            $this->$prop = $val; 
         }
     }
    
