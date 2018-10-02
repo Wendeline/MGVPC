@@ -29,32 +29,17 @@ class Employe {
         $this-> fonction = $fonction;
     }
     
-    function getIdEmp() {
-        return $this->idEmp;
-    }
-    function getNomEmp() {
-        return $this->nomEmp;
-    }
-    function getPrenomEmp() {
-        return $this->prenomEmp;
-    }
-    function getFonction() {
-        return $this->fonction;
+    public function __get($prop){
+        if (property_exists($this, $prop)){
+            return $this->$prop;
+        }
     }
     
-    function setIdEmp($idEmp) {
-        $this->idEmp = $idEmp;
+    public function __set($prop, $val) {
+        if(property_exists($this, $prop)){
+            $this->$prop = $val; 
+        }
     }
-    function setNomEmp($nomEmp) {
-        $this->nomEmp = $nomEmp;
-    }
-    function setPrenomEmp($prenomEmp) {
-        $this->prenomEmp = $prenomEmp;
-    }
-    function setFonction($fonction) {
-        $this->fonction = $fonction;
-    }
-
 
     
 }

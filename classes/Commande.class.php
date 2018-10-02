@@ -19,8 +19,8 @@ class Commande {
     private $etatCde;
     
     private $client;
-    protected $produits=array();
-    protected $quantites=array();
+    private $produits=array();
+    private $quantites=array();
         
     public function __construct($numCde,$client){
         $this-> numCde = $numCde;

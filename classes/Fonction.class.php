@@ -22,19 +22,16 @@ class Fonction {
         $this-> nomF = $nomF;
     }
     
-    function getIdF() {
-        return $this->idF;
+    public function __get($prop){
+        if (property_exists($this, $prop)){
+            return $this->$prop;
+        }
     }
-    function getNomF() {
-        return $this->nomF;
+    
+    public function __set($prop, $val) {
+        if(property_exists($this, $prop)){
+            $this->$prop = $val; 
+        }
     }
-
-    function setIdF($idF) {
-        $this->idF = $idF;
-    }
-    function setNomF($nomF) {
-        $this->nomF = $nomF;
-    }
-
 
 }

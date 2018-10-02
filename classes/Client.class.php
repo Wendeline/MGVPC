@@ -30,32 +30,17 @@ class Client {
         $this-> villeCli = $villeCli;
     }
     
-    function getIdCli() {
-        return $this->idCli;}
-    function getNomCli() {
-        return $this->nomCli;}
-    function getPrenomCli() {
-        return $this->prenomCli;}
-    function getRueCli() {
-        return $this->rueCli;}
-    function getCpCli() {
-        return $this->cpCli;}
-    function getVilleCli() {
-        return $this->villeCli;}
-
-    function setIdCli($idCli) {
-        $this->idCli = $idCli;}
-    function setNomCli($nomCli) {
-        $this->nomCli = $nomCli;}
-    function setPrenomCli($prenomCli) {
-        $this->prenomCli = $prenomCli;}
-    function setRueCli($rueCli) {
-        $this->rueCli = $rueCli;}
-    function setCpCli($cpCli) {
-        $this->cpCli = $cpCli;}
-    function setVilleCli($villeCli) {
-        $this->villeCli = $villeCli;}
-
+    public function __get($prop){
+        if (property_exists($this, $prop)){
+            return $this->$prop;
+        }
+    }
+    
+    public function __set($prop, $val) {
+        if(property_exists($this, $prop)){
+            $this->$prop = $val; 
+        }
+    }
 
     
 }

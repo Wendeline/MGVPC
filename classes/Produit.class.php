@@ -30,42 +30,16 @@ class Produit {
         $this-> emplacementProd = $emplacementProd;
     }
     
-    function getIdProd() {
-        return $this->idProd;
+    public function __get($prop){
+        if (property_exists($this, $prop)){
+            return $this->$prop;
+        }
     }
-    function getLibProd() {
-        return $this->libProd;
-    }
-    function getDescProd() {
-        return $this->descProd;
-    }
-    function getPrixProd() {
-        return $this->prixProd;
-    }
-    function getStockProd() {
-        return $this->stockProd;
-    }
-    function getEmplacementProd() {
-        return $this->emplacementProd;
-    }
-
-    function setIdProd($idProd) {
-        $this->idProd = $idProd;
-    }
-    function setLibProd($libProd) {
-        $this->libProd = $libProd;
-    }
-    function setDescProd($descProd) {
-        $this->descProd = $descProd;
-    }
-    function setPrixProd($prixProd) {
-        $this->prixProd = $prixProd;
-    }
-    function setStockProd($stockProd) {
-        $this->stockProd = $stockProd;
-    }
-    function setEmplacementProd($emplacementProd) {
-        $this->emplacementProd = $emplacementProd;
+    
+    public function __set($prop, $val) {
+        if(property_exists($this, $prop)){
+            $this->$prop = $val; 
+        }
     }
 
 }
