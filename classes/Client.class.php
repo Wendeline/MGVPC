@@ -21,8 +21,7 @@ class Client {
     private $cpCli;
     private $villeCli;
     
-    public function __construct($idCli,$nomCli,$prenomCli,$rueCli,$cpCli,$villeCli){
-        $this-> idCli = $idCli;
+    public function __construct($nomCli,$prenomCli,$rueCli,$cpCli,$villeCli){
         $this-> nomCli = $nomCli;
         $this-> prenomCli = $prenomCli;
         $this-> rueCli = $rueCli;
@@ -30,17 +29,21 @@ class Client {
         $this-> villeCli = $villeCli;
     }
     
-    public function __get($prop){
-        if (property_exists($this, $prop)){
-            return $this->$prop;
-        }
-    }
-    
-    public function __set($prop, $val) {
-        if(property_exists($this, $prop)){
-            $this->$prop = $val; 
-        }
-    }
+    function getId() {return $this->idCli;}
+    function getNom() {return $this->nomCli;}
+    function getPrenom() {return $this->prenomCli;}
+    function getRue() {return $this->rueCli;}
+    function getCp() {return $this->cpCli;}
+    function getVille() {return $this->villeCli;}
+
+    function setId($idCli) {$this->idCli = $idCli;}
+    function setNom($nomCli) {$this->nomCli = $nomCli;}
+    function setPrenom($prenomCli) {$this->prenomCli = $prenomCli;}
+    function setRue($rueCli) {$this->rueCli = $rueCli;}
+    function setCp($cpCli) {$this->cpCli = $cpCli;}
+    function setVille($villeCli) {$this->villeCli = $villeCli;}
+
+
 
     
 }
