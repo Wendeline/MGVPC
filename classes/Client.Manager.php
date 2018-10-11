@@ -11,7 +11,7 @@
  *
  * @author etudiant
  */
-require_once("database.class.php");
+require_once("database.php");
 
 class ClientManager {
     //put your code here
