@@ -28,19 +28,21 @@ class Commande {
         $this-> etatCde = "en attente";
         $this-> client = $client;
     }
+       
+    function getNumCde()    {return $this->numCde;}
+    function getDateCde()   {return $this->dateCde;}
+    function getEtatCde()   {return $this->etatCde;}
+    function getClient()    {return $this->client;}
+    function getProduits()  {return $this->produits;}
+    function getQuantites() {return $this->quantites;}
     
-    public function __get($prop){
-        if (property_exists($this, $prop)){
-            return $this->$prop;
-        }
-    }
-    
-    public function __set($prop, $val) {
-        if(property_exists($this, $prop)){
-            $this->$prop = $val; 
-        }
-    }
-   
+    function setNumCde($numCde)         {$this->numCde      = $numCde;}
+    function setDateCde($dateCde)       {$this->dateCde     = $dateCde;}
+    function setEtatCde($etatCde)       {$this->etatCde     = $etatCde;}
+    function setClient($client)         {$this->client      = $client;}
+    function setProduits($produits)     {$this->produits    = $produits;}
+    function setQuantites($quantites)   {$this->quantites   = $quantites;}
+
 
     public function addProduit($prod){
         if (isset($this->quantites[$prod->id])){

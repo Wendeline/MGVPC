@@ -23,7 +23,7 @@ class ProduitManager {
     public function save(Produit $prod){        
         $nbRows = 0;
         if ($prod->getId()!=''){
-            $query = "select count(*) as nb from `produit` where `idP`=?";
+            $query = "select count(*) as nb from `produit` where `idProd`=?";
             $traitement = $this->db->prepare($query);
             $param1=$prod->getId();
             $traitement->bindparam(1,$param1);
@@ -32,7 +32,7 @@ class ProduitManager {
             $nbRows=$ligne[0];
         }
         if ($nbRows > 0){ 
-            $query = "update `produit` set `libProd`=?, `descProd`=?, `prixProd`=?,`stockProd`=?, `emplacementProd`=? where `idP`=?";
+            $query = "update `produit` set `libProd`=?, `descProd`=?, `prixProd`=?,`stockProd`=?, `emplacementProd`=? where `idProd`=?";
             $traitement = $this->db->prepare($query);
             $param1=$prod->getLib();
             $traitement->bindparam(1,$param1);
@@ -68,7 +68,7 @@ class ProduitManager {
     public function delete(Produit $prod){
         $nbRows = 0;
         if ($prod->getId()!=''){                    
-            $query = "select count(*) as nb from `produit` where `idP`=?";
+            $query = "select count(*) as nb from `produit` where `idProd`=?";
             $traitement = $this->db->prepare($query);
             $param1 = $prod->getId();
             $traitement->bindparam(1,$param1);
@@ -76,7 +76,7 @@ class ProduitManager {
             $ligne = $traitement->fetch();
             $nbRows=$ligne[0];
         }if ($nbRows > 0){
-            $query = "delete from `produit` where `idP`=?";
+            $query = "delete from `produit` where `idProd`=?";
             $traitement = $this->db->prepare($query);
             $param1 = $prod->getId();
             $traitement->bindparam(1,$param1);
@@ -94,7 +94,7 @@ class ProduitManager {
             $result = $this->db->Query($query);
             while ($row = $result->fetch()){
                 $produit = new Produit($row['libProd'],$row['descProd'],$row['prixProd'],$row['stockProd'],$row['emplacementProd']);
-                $produit->setId($row['idP']);
+                $produit->setId($row['idProd']);
                 $prodList[] = $produit;
             }
             return $prodList;
@@ -104,7 +104,7 @@ class ProduitManager {
     }
     
     public function get($id){
-        $query = "select * from `produit` WHERE `idP`=?";
+        $query = "select * from `produit` WHERE `idProd`=?";
         try{
             $traitement = $this->db->prepare($query);
             $traitement->bindparam(1,$id);
@@ -114,7 +114,7 @@ class ProduitManager {
         }
         $row = $traitement->fetch();
         $produit = new Produit($row['libProd'],$row['descProd'],$row['prixProd'],$row['stockProd'],$row['emplacementProd']);
-        $produit->setId($row['idP']);
+        $produit->setId($row['idProd']);
         return $produit;    
     }
 }

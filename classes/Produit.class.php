@@ -42,7 +42,7 @@ class Produit {
     function setPrix($prixProd) {$this->prixProd = $prixProd;}
     function setStock($stockProd) {$this->stockProd = $stockProd;}
     function setEmplacement($emplacementProd) {$this->emplacementProd = $emplacementProd;}
-
+ 
 
 
 }
