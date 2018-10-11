@@ -17,21 +17,14 @@ class Fonction {
     private $idF;
     private $nomF;
     
-    public function __construct($idF,$nomF){
-        $this-> idF = $idF;
+    public function __construct($nomF){
         $this-> nomF = $nomF;
     }
     
-    public function __get($prop){
-        if (property_exists($this, $prop)){
-            return $this->$prop;
-        }
-    }
-    
-    public function __set($prop, $val) {
-        if(property_exists($this, $prop)){
-            $this->$prop = $val; 
-        }
-    }
+    function getId() {return $this->idF;}
+    function getNom() {return $this->nomF;}
+
+    function setId($idF) {$this->idF = $idF;}
+    function setNom($nomF) {$this->nomF = $nomF;}
 
 }

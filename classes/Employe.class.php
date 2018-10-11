@@ -22,24 +22,23 @@ class Employe {
     
     private $fonction;
         
-    public function __construct($idEmp,$nomEmp,$prenomEmp,$fonction){
-        $this-> idEmp = $idEmp;
+    public function __construct($nomEmp,$prenomEmp,$fonction){
         $this-> nomEmp = $nomEmp;
         $this-> prenomEmp = $prenomEmp;
         $this-> fonction = $fonction;
     }
     
-    public function __get($prop){
-        if (property_exists($this, $prop)){
-            return $this->$prop;
-        }
-    }
-    
-    public function __set($prop, $val) {
-        if(property_exists($this, $prop)){
-            $this->$prop = $val; 
-        }
-    }
+    function getId() {return $this->idEmp;}
+    function getNom() {return $this->nomEmp;}
+    function getPrenom() {return $this->prenomEmp;}
+    function getFonction() {return $this->fonction;}
+
+    function setId($idEmp) {$this->idEmp = $idEmp;}
+    function setNom($nomEmp) {$this->nomEmp = $nomEmp;}
+    function setPrenom($prenomEmp) {$this->prenomEmp = $prenomEmp;}
+    function setFonction($fonction) {$this->fonction = $fonction;}
+
+
 
     
 }
