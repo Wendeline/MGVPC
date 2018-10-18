@@ -92,15 +92,15 @@ class ClientManager {
         $cliList = Array();
         try{
             $result = $this->db->Query($query);
-            while ($row = $result->fetch()){
-                $client = new Client($row['nomCli'],$row['prenomCli'],$row['rueCli'],$row['cpCli'],$row['villeCli']);
-                $client->setId($row['idCli']);
-                $cliList[] = $client;
-            }
-            return $cliList;
         }catch(PDOException $e){
             die ("Erreur : ".$e->getMessage());
-        }   
+        }  
+        while ($row = $result->fetch()){
+            $cli = new client($row['nomCli'],$row['prenomCli'],$row['rueCli'],$row['cpCli'],$row['villeCli']);
+            $cli->setId($row['idCli']);
+            $cliList[] = $cli;
+        }
+        return $cliList;
     }
     
     public function get($id){

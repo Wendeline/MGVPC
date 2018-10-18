@@ -1,5 +1,5 @@
 <?php
-require_once("database.class.php");
+require_once("database.php");
 
 class CommandeManager {
     //put your code here

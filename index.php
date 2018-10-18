@@ -12,12 +12,12 @@ and open the template in the editor.
     <body>
         <?php
         // put your code here
-        include 'classes/Client.class.php';
-        include 'classes/Client.Manager.php';
+        include 'classes/Client.class.php'; 
+        include 'classes/Client.Manager.php'; //fonctionne
         include 'classes/Produit.class.php';
-        include 'classes/Produit.Manager.php';
-        include 'classes/Commande.class.php';
-        include 'classes/Commande.Manager.php';
+        include 'classes/Produit.Manager.php'; //fonctionne
+        //include 'classes/Commande.class.php';
+        //include 'classes/Commande.Manager.php';
         include 'classes/Fonction.class.php';
         include 'classes/Fonction.Manager.php';
         include 'classes/Employe.class.php';
@@ -25,22 +25,22 @@ and open the template in the editor.
         
         echo "<br><br>TEST DE LA CLASSE BIDULE <br>"; 
             echo "------------------------------------------------";
-            $managerU = new UtilisateurManager(database::getDB());
+            $managerU = new ProduitManager(database::getDB());
             echo"<pre>";
                 var_dump ($managerU->getList());
             echo '</pre><pre>';
-                var_dump ($managerU->getList("WHERE idU<4"));
+                var_dump ($managerU->getList("WHERE idProd<20"));
             echo '</pre><pre>';
                 var_dump ($managerU->get(14));
             echo '</pre>';
-            $UTest = new Utilisateur(45,"pseudo","nom", "prenom", "mail", "tel", "ville", "distance", "mdp","","","","");
+            $UTest = new Produit("LibSuper", "DescGeniale", 5000, 50, "E2.2");
             
             echo '<pre>';
                 var_dump ($managerU->save($UTest));
             echo '</pre>';
             
             $UTest->setId(27);
-            $UTest->setPseudo("PseudoGenial");
+            $UTest->setLib("NomGenial");
             echo '<pre>';
                 var_dump ($managerU->save($UTest));
             echo '</pre>';
