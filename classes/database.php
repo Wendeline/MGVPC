@@ -13,11 +13,11 @@
  */
 class database {
     //put your code here
-    private $serverName="172.16.220.20";
-    private $serverPort="3128";
+    private $serverName="localhost"; //172.16.220.20
+    private $serverPort="3306";
     private $databaseName="MGVPC";
-    private $databaseUser="adminer";
-    private $databasePassword="RootRoot123";
+    private $databaseUser="root"; //adminer
+    private $databasePassword=""; //RootRoot123
     private $databaseCharset="UTF8";
     
     //Attribut de type instance de PDO
