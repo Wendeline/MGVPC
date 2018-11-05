@@ -49,7 +49,7 @@ class CommandeManager {
             $listQuantit =  $commande->getQuantites();
 
             foreach ($listProduit as $key => $rowProduit) {
-                if ($listProduit->getId()!='' &&){
+                if ($listProduit->getId()!= ''){
                     $query = "SELECT count(*) as nb from `comporter` where `numCde`=? AND `idProd`";
                     $traitement = $this->db->prepare($query);
 
@@ -65,10 +65,7 @@ class CommandeManager {
                 }
                 if ($nbRows > 0){
                 }
-            }
-    	}
-
-           
+            }       
         }else{ 
             $query = "insert into `commande` (``,``,``, ``,``) values (?,?,?,?,?)";
             $traitement = $this->db->prepare($query);
